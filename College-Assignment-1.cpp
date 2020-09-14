@@ -14,13 +14,14 @@ void bubble_sort(stud s[20],int n);
 void insertionSort(stud s[20],int n);
 void quick_sort(stud s[20],int,int);
 int partition(stud s[20],int,int);
-void search(stud s[20],int n,double key);
+void search(stud s[20],int n,float key);
 int bsearch(stud s[20], char x[20],int low,int high);
 
 int main()
 {
     stud s[20];
-    int ch,n,key,result;
+    int ch,n,result;
+    float key;
     char x[20];
     do
     {
@@ -55,9 +56,9 @@ int main()
             break;
 
             case 5:
-            quick_sort(s,0,n-1);
+            quick_sort(s,0,n);
             cout<<"\n"<< "\t"<< "Roll No"<< "\t"<<" Name" <<"\t"<< "Marks";
-            for(int i=n-1; i>=n-10; i--)
+            for(int i=0; i<n; i++)
             {
                 cout<<"\n";
             cout<<"\t "<< s[i].roll_num<<"\t "<<s[i].name<<"\t "<<s[i].marks;
@@ -173,7 +174,7 @@ void quick_sort(stud s[20], int l,int u)
 int partition(stud s[20], int l,int u)
 {
     int i,j;
-	 stud temp, v;
+	stud temp, v;
     
     v=s[l];
     i=l;
@@ -206,7 +207,7 @@ int partition(stud s[20], int l,int u)
 
 // linear search for marks if more than one student having same marks print all of them 
 
-void search(stud s[20],int n,double key)
+void search(stud s[20],int n,float key)
 {
     int i;
     cout<<"\n"<< "\t"<< "Roll No"<< "\t"<<" Name" <<"\t"<< "Marks";
