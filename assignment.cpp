@@ -101,7 +101,8 @@ void displayCQ_forward()
 
 //Display in reverse direction
 
-void displayCQ_reverse(){
+void displayCQ_reverse()
+{
     int f=front;
     int r=rear;
     if(front==-1)
@@ -117,7 +118,9 @@ void displayCQ_reverse(){
         {
             cout<<cqueue[r]<<"";
             r--;
-        }else
+        }
+    }
+        else
         {
             while(r>=0)
             {
@@ -130,47 +133,48 @@ void displayCQ_reverse(){
                 cout<<cqueue<<"";
                 r--;
             }
-        }       
-        cout<<endl;
-    }   
+        }
+        cout<<endl;    
+    
 }
 int main()
 {
-    int ch, val;
-    cout<<"1|Insert\n";
-    cout<<"2|Delete\n";
-    cout<<"3|Display forward\n";
-    cout<<"4|Display reverse\n";
-    cout<<"5|Exit\n";
-    do
-    {
-        cout<<"Enter your choice:"<<endl;
+    int ch;
+    int val;
+    cout<<"1) Insert"<<endl;
+    cout<<"2) Delete"<<endl;
+    cout<<"3) Display in forward"<<endl;
+    cout<<"4) Display in reverse"<<endl;
+    cout<<"4) Exit"<<endl;
+    
+    do{
+        cout<<"Enter choice :"<<endl;
         cin>>ch;
         switch(ch)
         {
             case 1:
-            cout<<"Input fro insertion:"<<endl;
-            cin>>val;
-            insertCQ(val);
-            break;
-            
+                cout<<"Input for insertion: "<<endl;
+                cin>>val;
+                insertCQ(val);
+                break;
             case 2:
-            deleteCQ();
-            break;
-            
+                deleteCQ();
+                break;
             case 3:
-            displayCQ_forward();
-            break;
-
+                displayCQ_forward();
+                break;
             case 4:
-            displayCQ_reverse();
-            break;
-
+                displayCQ_reverse();
+                break;
             case 5:
-            cout<<"Exit\n";
-            break;
-            
-            default:cout<<"Incorrect!\n";
+                cout<<"Exit"<<endl;
+                break;
+            default:
+                cout<<"Incorrect!"<<endl;
         }
     }
+        while(ch!=5);
+    
+    
+    return 0;
 }
