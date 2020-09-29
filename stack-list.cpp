@@ -146,17 +146,31 @@ int precedence(char x)
 }
 
 int evaluate(int op1,int op2,char op)
-{
+{    
     if(op=='+')
+    {
     return op1+op2;
+    }
     if(op=='-')
+    {
     return op1-op2;
+    }
     if(op=='*')
+    {
     return op1*op2;
+    }
     if(op=='/')
+    {
     return op1/op2;
+    }
     if(op=='%')
+    {
     return op1%op2;
+    }
+    else 
+    {
+        return 0;
+    }
 }
 
 void evaluate_postfix(char postfix[20])
@@ -255,4 +269,33 @@ char prefix1[20],infix1[20];
 reverse(infix,infix1);
 infix_postfix1(infix1,prefix1);
 reverse(prefix1,prefix);
+}
+
+void evaluate_prefix(char prefix[20])
+{
+    stack s;
+    int i,op1,op2,result;
+    char token;
+    int x;
+    for(i=0;prefix[i]!='\0';i++) {}
+    i--;
+    for(;i>=0;i--)
+    {
+        token=prefix[i];
+        if(isalnum(token))
+        {
+            cout<<"enter the value"<<token;
+            cin>>x;
+            s.push(char(x));
+        }
+        else
+        {
+            op1=s.pop();
+            op2=s.pop();
+            result=evaluate(op1,op2,token);
+            s.push(char(result));
+        }
+    }
+    result=s.pop();
+    cout<<"result="<<result;
 }
