@@ -8,3 +8,8 @@
 /fibonacci
 /*.exe
 /*.dSYM
+.DS_Store
+inorder-traversal-tree
+stack-list.cpp
+Tree-via-stacks
+xyz

@@ -55,39 +55,39 @@ void evaluate_prefix(char prefix[20]);
 
 int main()
 {
-char infix[20],token,postfix[20],prefix[20];
-int ch,result;
-do
-    {
-        cout<<"\n1. infix to postfix expansion";
-        cout<<"\n2. infix to prefix expansion";
-        cout<<"\n3. evaluate postfix";
-        cout<<"\n4. evaluate prefix";
-        cout<<"\n5. exit";
-        cout<<"\nenter your choice:";
-        cin>>ch;
-
-        switch(ch)
+    char infix[20],token,postfix[20],prefix[20];
+    int ch,result;
+    do
         {
-            case 1:cout<<"\n Enter Infix expression";
-            cin>>infix;
-            infix_postfix(infix,postfix);
-            cout<<"\n Postfix:="<<postfix;
-            break;
-            case 2:cout<<"\n Enter infix expression";
-            cin>>infix;
-            infix_prefix(infix,prefix);
-            cout<<"\n prefix expression is"<<prefix;
-            break;
-            case 3:
-            evaluate_postfix(postfix);
-            break;
-            case 4:
-            evaluate_prefix(prefix);
-            break;
+            cout<<"\n1. infix to postfix expansion";
+            cout<<"\n2. infix to prefix expansion";
+            cout<<"\n3. evaluate postfix";
+            cout<<"\n4. evaluate prefix";
+            cout<<"\n5. exit";
+            cout<<"\nenter your choice:";
+            cin>>ch;
+
+            switch(ch)
+            {
+                case 1:cout<<"\n Enter Infix expression";
+                cin>>infix;
+                infix_postfix(infix,postfix);
+                cout<<"\n Postfix:="<<postfix;
+                break;
+                case 2:cout<<"\n Enter infix expression";
+                cin>>infix;
+                infix_prefix(infix,prefix);
+                cout<<"\n prefix expression is"<<prefix;
+                break;
+                case 3:
+                evaluate_postfix(postfix);
+                break;
+                case 4:
+                evaluate_prefix(prefix);
+                break;
+            }
         }
-    }
-while(ch!=5);
+    while(ch!=5);
 }
 
 void infix_postfix(char infix[20],char postfix[20])
