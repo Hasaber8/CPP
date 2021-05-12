@@ -1,28 +1,28 @@
 #include <iostream>
- #include<bits/stdc++.h>
- #include <cstring>
- using namespace std;
+#include <bits/stdc++.h>
+#include <cstring>
+using namespace std;
 
- #define V 7
+#define V 7
 
   
- int main () {
-   int G[V][V] = {
-   {0,28,0,0,0,10,0},
+int main () {
+ int G[V][V] = {
+ {0,28,0,0,0,10,0},
  {28,0,16,0,0,0,14},
  {0,16,0,12,0,0,0},
  {0,0,12,22,0,18},
  {0,0,0,22,0,25,24},
  {10,0,0,0,25,0,0},
  {0,14,0,18,24,0,0}
- };
+};
   
-   int edge;
+ int edge;
   
-   int visit[V];
+ int visit[V];
    
-  for(int i=0;i<V;i++){
-    visit[i]=false;
+ for(int i=0;i<V;i++){
+  visit[i]=false;
 }
   
    edge = 0;

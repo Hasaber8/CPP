@@ -46,7 +46,6 @@ class Queue
         {
             rear->next = temp;
             rear = rear->next;
-
         }
     }
 

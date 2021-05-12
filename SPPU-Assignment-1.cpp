@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 typedef struct student
@@ -8,6 +9,22 @@ typedef struct student
     char name [20];
     float marks;
 }stud;
+
+void swap(int* a, int* b)
+{
+	int t = *a;
+	*a = *b;
+	*b = t;
+}
+
+/* Function to print an array */
+void printArray(int arr[], int size)
+{
+	int i;
+	for (i = 0; i < size; i++)
+		cout << arr[i] << " ";
+	cout << endl;
+}
 
 void create(stud s[20],int n);
 void display(stud s[20],int n);
@@ -57,13 +74,11 @@ int main()
             break;
 
             case 5:
-            quick_sort(s,0,n);
             cout<<"\n"<< "\t"<< "Roll No"<< "\t"<<" Name" <<"\t"<< "Marks";
-            for(int i=0; i<n; i++)
-            {
-                cout<<"\n";
-            cout<<"\t "<< s[i].roll_num<<"\t "<<s[i].name<<"\t "<<s[i].marks;
-            }
+            int n = sizeof(s) / sizeof(s[0]);
+	        quickSort(s, 0, n - 1);
+	        cout << "Sorted array: \n";
+	        printArray(s, n);
             break;
 
             case 6:
@@ -161,49 +176,46 @@ void insertionSort(stud s[20], int n)
   
 //Quick sort to sort on marks 
 
-void quick_sort(stud s[20], int l,int u)
+/* The main function that implements QuickSort
+stud s[20] --> Array to be sorted,
+low --> Starting index,
+high --> Ending index */
+void quick_sort(stud s[20], int low, int high)
 {
-    int j;
-    if(l<u)
-    {
-        j=partition(s,l,u);
-        quick_sort(s,l,j-1);
-        quick_sort(s,j+1,u);
-    }
+	if (low < high)
+	{
+		/* pi is partitioning index, stud s[20] is now
+		at right place */
+		int pi = partition(s, low, high);
+
+		// Separately sort elements before
+		// partition and after partition
+		quickSort(s, low, pi - 1);
+		quickSort(s, pi + 1, high);
+	}
 }
  
-int partition(stud s[20], int l,int u)
+/* This function takes last element as pivot, places
+the pivot element at its correct position in sorted
+array, and places all smaller (smaller than pivot)
+to left of pivot and all greater elements to right
+of pivot */
+int partition (stud s[20], int low, int high)
 {
-    int i,j;
-	stud temp, v;
-    
-    v=s[l];
-    i=l;
-    j=u+1;
-    
-    do
-    {
-        do
-            i++;
-            
-        while(s[i].marks<v.marks&&i<=u);
-        
-        do
-            j--;
-        while(v.marks<s[j].marks);
-        
-        if(i<j)
-        {
-            temp=s[i];
-            s[i]=s[j];
-            s[j]=temp;
-        }
-    }while(i<j);
-    
-    s[l]=s[j];
-    s[j]=v;
-    
-    return(j);
+	int pivot = s[high]; // pivot
+	int i = (low - 1); // Index of smaller element and indicates the right position of pivot found so far
+
+	for (int j = low; j <= high - 1; j++)
+	{
+		// If current element is smaller than the pivot
+		if (s[j] < pivot)
+		{
+			i++; // increment index of smaller element
+			swap(&s[i], &s[j]);
+		}
+	}
+	swap(&s[i + 1], &s[high]);
+	return (i + 1);
 }
 
 // linear search for marks if more than one student having same marks print all of them 

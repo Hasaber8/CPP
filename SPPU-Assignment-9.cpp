@@ -1,5 +1,5 @@
 #include "iostream"
-#include "cstdlib"
+
 
 using namespace std;
 
@@ -120,7 +120,8 @@ int main() {
                 Max_HeapSort(arr, n);
                 print(arr, n);
                 break;
-            case 2:build_minheap(arr, n);
+            case 2:
+                build_minheap(arr, n);
                 Min_HeapSort(arr, n);
                 print(arr, n);
                 break;

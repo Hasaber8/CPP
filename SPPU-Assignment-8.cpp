@@ -45,7 +45,6 @@ class graph {
     for (i = 0; i < v; i++) //intialization of r[][]
     {
       for (j = 0; j < v; j++)
-
       {
         if (g[i][j] == 0)
           r[i][j] = 9999;
